@@ -1,2 +1,2 @@
 # CI-CD-Project
-This GitHub repository is a java application for practicing CI/CD using jenkins pipelines.
+This GitHub repository is a java application for practicing CI/CD using jenkins pipeline. This pipeline performs tests using MAVEN at the code pulled from GitHub repository and then builds the whole code. The GitHub repository is configured with Jenkins to trigger the action whenever a change is commited by developer. Afterwards, with the help of Docker & Ansible tools code is deployed to production and staging servers.
