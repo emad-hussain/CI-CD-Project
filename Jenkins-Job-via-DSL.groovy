@@ -8,42 +8,4 @@ job('Project Deployment Automated Pipeline')
     
     discardOldBuilds(int daysToKeep = 1, int numToKeep = 1)
 
-    buildSelectorParam(String parameterName) {
-
-        parameters {
-        booleanParam('FLAG', true)
-        choiceParam('OPTION', ['Production (default)', 'Staging'])
-    }
-
-    }
-
-    triggers {
-        scm('@midnight') {
-            ignorePostCommitHooks()
-        }
-
-    wrappers {
-        preBuildCleanup()
-    }
-
-
-    steps {
-
-        maven('MAVEN')
-        maven('test install', 'module-a/pom.xml')
-        maven {
-            goals('clean')
-            goals('verify')
-            mavenOpts('-Xms256m')
-            mavenOpts('-Xmx512m')
-            localRepository(LocalRepositoryLocation.LOCAL_TO_WORKSPACE)
-            properties(skipTests: true)
-            mavenInstallation('Maven 3.1.1')
-            providedSettings('central-mirror')
-        }
-    }
-
-
-
-
 }
