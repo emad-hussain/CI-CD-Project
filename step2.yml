@@ -1,0 +1,9 @@
+---
+- name: deploying project to appservers
+  hosts: all
+
+  tasks:
+  - name: creating fresh image
+    ansible.builtin.command: docker build -t customtomcatimage .
+  - name: creating fresh container
+    ansible.builtin.command: docker run -d -p 8080:8080 --name customtomcat customtomcatimage
