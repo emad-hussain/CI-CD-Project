@@ -58,7 +58,7 @@ steps {
                 }
                 
                 transferSet {
-                    sourceFiles('Dockerfile')
+                    sourceFiles('CI-CD-Pipeline/Dockerfile')
                     remoteDirectory('.')
                 }
             }
