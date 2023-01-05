@@ -49,7 +49,7 @@ steps
 //configuring postBuildSteps with publishOverSsh plugin
 steps {
         publishOverSsh {
-            server('app server ') {
+            server('master') {
                 credentials('eetch') {
                     encryptedPassphrase : 'eetch'
                 }
