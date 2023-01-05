@@ -14,7 +14,7 @@ logRotator
 //confiuring job with build parameters
 parameters
 {
-        choiceParam('Servers', ['Production', 'Staging'], 'Production - The real time server for application \nStaging - The test server for testing patches, upgrades etc.')
+        choiceParam('Servers', ['Staging', 'Production'], 'Staging - The test server for testing patches, upgrades etc.\nProduction - The real time server for application')
 }
 
 //integrating with GitHub repository with main branch
