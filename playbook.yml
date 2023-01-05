@@ -1,0 +1,33 @@
+---
+- name: copying files & performing checks to appservers
+  hosts: all
+
+  tasks:
+  - name: copy webapp file to remote server
+    ansible.builtin.command: mv ./webapp.war ROOT.war
+    ansible.builtin.copy:
+      src: /home/eetch/webapp.war
+      dest: /home/eetch/webapp.war
+      owner: eetch
+      group: eetch
+      mode: '0755'
+  - name: copy dockerfile to remote servers
+    ansible.builtin.copy:
+      src: /home/eetch/Dockerfile
+      dest: /home/eetch/Dockerfile
+      owner: eetch
+      group: eetch
+      mode: '0755'
+  - name: stopping current container
+    ansible.builtin.command: docker stop customtomcat
+    ignore_errors: true
+  - name: removing current container
+    ansible.builtin.command: docker rm customtomcat
+    ignore_errors: true
+  - name: removing current image
+    ansible.builtin.command: docker rmi customtomcatimage
+    ignore_errors: true
+  - name: creating fresh image
+    ansible.builtin.command: docker build -t customtomcatimage .
+  - name: creating fresh container
+    ansible.builtin.command: docker run -d -p 8080:8080 --name customtomcat customtomcatimage
