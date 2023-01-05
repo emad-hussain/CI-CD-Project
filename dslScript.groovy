@@ -60,7 +60,6 @@ steps {
                 transferSet {
                     sourceFiles('Dockerfile')
                     remoteDirectory('.')
-                    execCommand('ansible-playbook playbook.yml --limit ${Servers}')
                     
                 }
             }
