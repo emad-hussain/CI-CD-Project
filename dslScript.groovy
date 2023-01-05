@@ -57,7 +57,7 @@ steps {
                     sourceFiles('webapp/target/webapp.war')
                     removePrefix('webapp/target/')
                     remoteDirectory('.')
-                    execCommand('ansible-playbook step1.yml --limit ${Servers}\nansible-playbook step2.yml --limit ${Servers}')
+                    execCommand('ansible-playbook playbook.yml --limit ${Servers}')
                 }
             }
 
