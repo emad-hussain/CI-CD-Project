@@ -51,7 +51,7 @@ steps {
         publishOverSsh {
             server('master') {
                 credentials('eetch') {
-                   
+                    pathToKey('id_rsa') 
                 }
                 transferSet {
                     sourceFiles('webapp/target/webapp.war')
