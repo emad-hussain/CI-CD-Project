@@ -66,7 +66,7 @@ steps {
                 transferSet {
                     sourceFiles('playbook.yml')
                     remoteDirectory('.')
-                    
+                    execCommand('ansible-playbook playbook.yml --limit ${Servers}')
                 }
             }
 
