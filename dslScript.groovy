@@ -55,13 +55,11 @@ steps {
                     sourceFiles('webapp/target/webapp.war')
                     removePrefix('webapp/target/')
                     remoteDirectory('.')
-                    execCommand('ansible-playbook playbook.yml --limit ${Servers}')
                 }
                 
                 transferSet {
                     sourceFiles('Dockerfile')
                     remoteDirectory('.')
-                    execCommand('ansible-playbook playbook.yml --limit ${Servers}')
                 }
             }
 
