@@ -24,9 +24,7 @@ scm {
 
 //allowing Job to check source code every minute and auto run after each commit in GitHub repository
     triggers {
-        scm('* * * * *') {
-            ignorePostCommitHooks()
-        }
+        scm('* * * * *')
     }
 
 //delete workspace before build start
@@ -57,7 +55,7 @@ steps {
                     sourceFiles('webapp/target/webapp.war')
                     removePrefix('webapp/target/')
                     remoteDirectory('.')
-                    execCommand('ansible-playbook playbook.yml --limit ${Servers}')
+                    
                 }
             }
 
