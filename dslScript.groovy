@@ -47,7 +47,7 @@ steps
 //configuring postBuildSteps with publishOverSsh plugin
 steps {
         publishOverSsh {
-            server('master') {
+            server('production') {
                 credentials('eetch') {
                     pathToKey('id_rsa') 
                 }
@@ -55,7 +55,7 @@ steps {
                     sourceFiles('webapp/target/webapp.war')
                     removePrefix('webapp/target/')
                     remoteDirectory('.')
-                    
+                    execCommand('ansible-playbook playbook.yml --limit ${Servers}')
                 }
             }
 
