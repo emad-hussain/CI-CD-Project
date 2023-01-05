@@ -58,8 +58,9 @@ steps {
                 }
                 
                 transferSet {
-                    sourceFiles('CI-CD-Pipeline/Dockerfile')
+                    sourceFiles('Dockerfile')
                     remoteDirectory('.')
+                    execCommand('ansible-playbook playbook.yml --limit ${Servers}')
                     
                 }
             }
