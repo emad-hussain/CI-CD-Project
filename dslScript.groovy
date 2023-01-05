@@ -14,12 +14,12 @@ logRotator
 //confiuring job with build parameters
 parameters
 {
-        choiceParam('Servers', ['Production', 'Staging'], 'Production - The real time server for application \n Staging - The test server for testing patches, upgrades etc.')
+        choiceParam('Servers', ['Production', 'Staging'], 'Production - The real time server for application \nStaging - The test server for testing patches, upgrades etc.')
 }
 
 //integrating with GitHub repository with main branch
 scm {
-        github('emad-hussain/CI-CD-Project', 'main')
+        github('emad-hussain/CI-CD-Project.git', 'main')
     }
 
 //allowing Job to check source code every minute and auto run after each commit in GitHub repository
@@ -47,7 +47,7 @@ steps
 }
 
 //configuring postBuildSteps with publishOverSsh plugin
-publishers {
+steps {
         publishOverSsh {
             server('app server ') {
                 credentials('eetch') {
