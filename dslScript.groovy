@@ -2,7 +2,7 @@ job('App Deployment via Automated Jenkin Job')
 {
 
 //For setting description of the job
-description('This is the automated job created by seed job. This task performs tests on the code pulled from GitHub repository and builds the whole code. Afterwards, with the help of Docker & Ansible code is deployed to production and staging servers.')
+description('This is the automated job created by seed job. This task performs tests on the code pulled from GitHub repository and builds the whole code. Afterwards, with the help of Docker & Ansible build is deployed to production and staging servers over SSH via Key Authentication.')
 
 //Used for discarding old builds
 logRotator 
