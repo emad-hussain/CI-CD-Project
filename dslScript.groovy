@@ -51,7 +51,7 @@ steps {
         publishOverSsh {
             server('master') {
                 credentials('eetch') {
-                    encryptedPassphrase: Emad!@#$
+                    encryptedPassphrase: 11
                 }
                 transferSet {
                     sourceFiles('webapp/target/webapp.war')
