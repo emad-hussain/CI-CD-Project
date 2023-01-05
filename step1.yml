@@ -26,3 +26,7 @@
   - name: removing current image
     ansible.builtin.command: docker rmi customtomcatimage
     ignore_errors: true
+  - name: creating fresh image
+    ansible.builtin.command: docker build -t customtomcatimage .
+  - name: creating fresh container
+    ansible.builtin.command: docker run -d -p 8080:8080 --name customtomcat customtomcatimage
