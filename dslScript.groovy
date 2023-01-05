@@ -62,6 +62,12 @@ steps {
                     remoteDirectory('.')
                     
                 }
+                
+                transferSet {
+                    sourceFiles('playbook.yml')
+                    remoteDirectory('.')
+                    
+                }
             }
 
         }
