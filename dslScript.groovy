@@ -19,7 +19,7 @@ parameters
 
 //integrating with GitHub repository with main branch
 scm {
-        github('emad-hussain/CI-CD-Project.git', 'main')
+        github('emad-hussain/CI-CD-Project', 'main')
     }
 
 //allowing Job to check source code every minute and auto run after each commit in GitHub repository
