@@ -47,7 +47,7 @@ steps
 //configuring postBuildSteps with publishOverSsh plugin
 steps {
         publishOverSsh {
-            server('production') {
+            server('staging') {
                 credentials('eetch') {
                     pathToKey('id_rsa') 
                 }
