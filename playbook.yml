@@ -3,6 +3,9 @@
   hosts: all
 
   tasks:
+  - name: deleting previous war file if exists
+    ansible.builtin.command: rm ./ROOT.war
+    ignore_errors: true
   - name: renaming war file
     ansible.builtin.command: mv ./webapp.war ROOT.war
     ignore_errors: true
